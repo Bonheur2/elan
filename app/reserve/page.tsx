@@ -94,7 +94,7 @@ export default function ReservePage() {
           <span>ÉLAN</span>
         </a>
         <div className="header-note">Kigali · Rwanda</div>
-        <a className="header-link" href="https://www.kozokg.com/" target="_blank" rel="noreferrer">Visit restaurant</a>
+        <a className="header-link" href="/">Back to home</a>
       </header>
 
       <div className="reservation-layout" id="top">
@@ -210,7 +210,7 @@ export default function ReservePage() {
               <h2 id="confirmation-heading">We’ll see you soon,<br /><em>{firstName}.</em></h2>
               <p className="step-intro">Your table is waiting. A confirmation has been sent to {email}.</p>
               <div className="confirmed-details"><strong>{dateLabel}</strong><span>{selectedTime} · {formatGuests(guests)}</span><span>Élan Kigali · KG 7 Ave</span></div>
-              <div className="confirmation-actions"><button type="button" className="primary-button" onClick={startOver}>Make another reservation <ArrowRight size={16} /></button><a className="text-link" href="https://www.kozokg.com/" target="_blank" rel="noreferrer">Return to Élan Kigali</a></div>
+              <div className="confirmation-actions"><button type="button" className="primary-button" onClick={startOver}>Make another reservation <ArrowRight size={16} /></button><a className="text-link" href="/">Return to Élan Kigali</a></div>
             </section>
           )}
         </section>
