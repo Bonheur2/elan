@@ -5,14 +5,23 @@ import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronLeft, ChevronRight, M
 
 type Step = 1 | 2 | 3 | 4
 type CalendarView = 'week' | 'month'
-type CalendarDate = { day: number; weekday: string; month: string; year: number; monthIndex: number; available: boolean; iso: string }
+type CalendarDate = { day: number; weekday: string; month: string; year: number; monthIndex: number; available: boolean; past: boolean; iso: string }
 
 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const timeSlots = ['6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM']
 
+function isPastDate(date: Date) {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const compare = new Date(date)
+  compare.setHours(0, 0, 0, 0)
+  return compare < today
+}
+
 function makeDate(date: Date): CalendarDate {
-  return { day: date.getDate(), weekday: weekdayNames[date.getDay()], month: monthNames[date.getMonth()].slice(0, 3), year: date.getFullYear(), monthIndex: date.getMonth(), available: date.getDay() !== 1, iso: date.toISOString().slice(0, 10) }
+  const past = isPastDate(date)
+  return { day: date.getDate(), weekday: weekdayNames[date.getDay()], month: monthNames[date.getMonth()].slice(0, 3), year: date.getFullYear(), monthIndex: date.getMonth(), available: date.getDay() !== 1 && !past, past, iso: date.toISOString().slice(0, 10) }
 }
 
 function getWeekDates(date: Date) {
@@ -132,7 +141,7 @@ export default function ReservePage() {
                       <div className="calendar-tabs" role="tablist" aria-label="Calendar view"><button type="button" className={calendarView === 'week' ? 'active' : ''} onClick={() => setCalendarView('week')} role="tab" aria-selected={calendarView === 'week'}>Week</button><button type="button" className={calendarView === 'month' ? 'active' : ''} onClick={() => setCalendarView('month')} role="tab" aria-selected={calendarView === 'month'}>Month</button></div>
                       {calendarView === 'month' && <div className="calendar-weekdays">{weekdayNames.map((day) => <span key={day}>{day.slice(0, 2)}</span>)}</div>}
                       <div className={`date-grid ${calendarView === 'month' ? 'month-grid' : ''}`}>
-                        {visibleDates.map((date, index) => date ? <button type="button" className={`date-option ${selectedDate.iso === date.iso ? 'selected' : ''} ${!date.available ? 'unavailable' : ''}`} onClick={() => { if (date.available) { setSelectedDate(date); setSelectedTime('') } }} key={date.iso} disabled={!date.available} aria-label={`${date.weekday}, ${date.month} ${date.day}${date.available ? '' : ', closed'}`} aria-pressed={selectedDate.iso === date.iso}><span>{calendarView === 'month' ? date.weekday.slice(0, 2) : date.weekday}</span><strong>{date.day}</strong><small>{calendarView === 'month' ? (date.available ? 'open' : 'closed') : date.month}</small></button> : <span className="empty-date" key={`empty-${index}`} />)}
+                        {visibleDates.map((date, index) => date ? <button type="button" className={`date-option ${selectedDate.iso === date.iso ? 'selected' : ''} ${!date.available ? 'unavailable' : ''}`} onClick={() => { if (date.available) { setSelectedDate(date); setSelectedTime('') } }} key={date.iso} disabled={!date.available} aria-label={`${date.weekday}, ${date.month} ${date.day}${date.available ? '' : date.past ? ', past' : ', closed'}`} aria-pressed={selectedDate.iso === date.iso}><span>{calendarView === 'month' ? date.weekday.slice(0, 2) : date.weekday}</span><strong>{date.day}</strong><small>{calendarView === 'month' ? (date.available ? 'open' : date.past ? 'past' : 'closed') : date.month}</small></button> : <span className="empty-date" key={`empty-${index}`} />)}
                       </div>
                       <p className="calendar-note"><span className="open-dot" /> Open for reservations <span className="closed-dot" /> Closed Mondays</p>
                     </div>
