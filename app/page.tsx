@@ -1,41 +1,42 @@
-import { ArrowRight, Clock3, MapPin, Soup, Users, UtensilsCrossed, Wine } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Clock3, MapPin, Phone, Users, UtensilsCrossed, Wine } from 'lucide-react'
 
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#menu', label: 'Menu' },
   { href: '#experience', label: 'Experience' },
-  { href: '#hours', label: 'Hours' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 const stats = [
-  { value: '2019', label: 'Est. in Kigali' },
-  { value: '07', label: 'Course tasting menu' },
-  { value: 'Tue–Sun', label: '6:00PM – 10:30PM' },
+  { value: '2018', label: 'Est. in Kigali' },
+  { value: 'Farm-to-table', label: 'Sourced from local farms' },
+  { value: 'Tue–Sun', label: 'Lunch, dinner & brunch' },
 ]
 
 const dishes = [
   {
-    name: 'Suya-Spiced Tuna Tataki',
-    detail: 'Toasted sesame, scotch bonnet oil, pickled daikon',
-    price: 'RWF 14,500',
+    name: 'Chef’s Sashimi Platter',
+    detail: 'Market salmon and shrimp, yuzu, wasabi',
+    image: '/images/food-1.webp',
   },
   {
-    name: 'Jollof Risotto',
-    detail: 'Smoked tomato, grilled prawns, crispy shallots',
-    price: 'RWF 16,000',
+    name: 'Seared Catch, Garden Herbs',
+    detail: 'Pan-seared fillet, charred vegetables, edible flowers',
+    image: '/images/food-2.webp',
   },
   {
-    name: 'Miso-Glazed Goat Rib',
-    detail: 'Cassava purée, charred scallion, chili caramel',
-    price: 'RWF 18,500',
+    name: 'Signature Maki Roll',
+    detail: 'Crab, avocado, tobiko, yuzu aioli',
+    image: '/images/food-3.webp',
   },
 ]
 
 const experience = [
-  { icon: UtensilsCrossed, title: 'Seasonal tasting menu', copy: 'Seven courses built around what’s fresh this week, reworked by the kitchen every month.' },
-  { icon: Wine, title: 'Curated cellar', copy: 'Old-world labels and African-grown wines, chosen to stand up to the spice on your plate.' },
-  { icon: Users, title: 'Private dining', copy: 'A closed-door room for up to 14 guests, for the dinners that need a little more quiet.' },
-  { icon: Clock3, title: 'Late kitchen', copy: 'Full menu until close, Tuesday through Sunday — no rushed last orders.' },
+  { icon: UtensilsCrossed, title: 'Farm-to-table menu', copy: 'Ingredients sourced from local farms, plated with Pan-Asian technique and African flavour.' },
+  { icon: Wine, title: 'Food, wine & cocktails', copy: 'A curated drinks list built to match the spice and depth of every plate.' },
+  { icon: Users, title: 'Private events & venue hire', copy: 'From intimate gatherings to large-scale celebrations, Kōzo sets the stage.' },
+  { icon: Clock3, title: 'Lunch, dinner & brunch', copy: 'Open Tuesday through Sunday, with the kitchen running till midnight on Fridays and Saturdays.' },
 ]
 
 export default function LandingPage() {
@@ -56,9 +57,9 @@ export default function LandingPage() {
 
       <section className="hero">
         <div className="hero-copy">
-          <p className="eyebrow">Afro-Asian fine dining · Kigali</p>
+          <p className="eyebrow">The Afro-Asian experience · Kigali</p>
           <h1>Flavors that travel,<br /><em>a table that stays.</em></h1>
-          <p className="hero-lede">Kozo blends West African warmth with Asian precision — a menu built for long nights, good company, and the kind of evening worth lingering over.</p>
+          <p className="hero-lede">Vibrant African flavours meet the refined precision of Pan-Asian cuisine — inspired by the ancient trade routes that once connected two continents.</p>
           <div className="hero-actions">
             <a className="primary-button hero-primary" href="/reserve">Book a table <ArrowRight size={16} /></a>
             <a className="text-link" href="#menu">Explore the menu</a>
@@ -72,20 +73,24 @@ export default function LandingPage() {
             ))}
           </dl>
         </div>
-        <div className="hero-visual" aria-hidden="true">
-          <span className="hero-visual-mark">K</span>
+        <div className="hero-visual">
+          <Image src="/images/hero.webp" alt="Kozo's poolside terrace at night" fill sizes="(max-width: 900px) 100vw, 45vw" priority />
         </div>
       </section>
 
       <section className="landing-section" id="about">
         <div className="section-split">
+          <div className="section-image">
+            <Image src="/images/about.webp" alt="Suya-spiced skewers with jollof rice at Kozo" fill sizes="(max-width: 900px) 100vw, 40vw" />
+          </div>
           <div>
             <p className="eyebrow">Our story</p>
             <h2>Two kitchens,<br />one table.</h2>
-          </div>
-          <div className="section-copy">
-            <p>Kozo started as a question: what happens when a Kigali kitchen stops choosing between its neighbors and its influences? The answer is a menu that moves freely between suya spice and soy glaze, cassava and rice noodle, without apologizing for either.</p>
-            <p>Every plate is built to be shared, every table is set to be lingered over, and every evening ends the way a good one should — slowly.</p>
+            <div className="section-copy">
+              <p>Kōzo was founded in 2018 by Ramzi Yamusah, built around a simple idea: that Africa and Asia have been trading spices, techniques, and stories since the Silk Road first connected them. Every dish on our table continues that conversation.</p>
+              <p>We work directly with community farmers here in Rwanda, sourcing what’s fresh for a menu that moves with the seasons — because a shared plate is only as good as what went into it.</p>
+            </div>
+            <p className="founder-credit">— Ramzi Yamusah, Founder</p>
           </div>
         </div>
       </section>
@@ -97,10 +102,13 @@ export default function LandingPage() {
         <div className="dish-grid">
           {dishes.map((dish) => (
             <article className="dish-card" key={dish.name}>
-              <Soup size={20} strokeWidth={1.5} />
-              <h3>{dish.name}</h3>
-              <p>{dish.detail}</p>
-              <span className="dish-price">{dish.price}</span>
+              <div className="dish-image">
+                <Image src={dish.image} alt={dish.name} fill sizes="(max-width: 700px) 100vw, (max-width: 900px) 50vw, 33vw" />
+              </div>
+              <div className="dish-card-body">
+                <h3>{dish.name}</h3>
+                <p>{dish.detail}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -121,14 +129,14 @@ export default function LandingPage() {
       </section>
 
       <section className="landing-quote">
-        <p>“We don’t plate two cuisines side by side. We cook until they stop being two.”</p>
-        <span>— The Kozo kitchen</span>
+        <p>“Where cultures converge, and flavours inspire.”</p>
+        <span>— Ramzi Yamusah, Founder of Kōzo</span>
       </section>
 
-      <section className="landing-section" id="hours">
+      <section className="landing-section" id="contact">
         <div className="section-split">
           <div>
-            <p className="eyebrow">Visit us</p>
+            <p className="eyebrow">Contact us</p>
             <h2>Find your table.</h2>
           </div>
           <div className="hours-grid">
@@ -136,14 +144,22 @@ export default function LandingPage() {
               <MapPin size={18} strokeWidth={1.5} />
               <div>
                 <strong>Location</strong>
-                <p>KG 7 Ave<br />Kigali, Rwanda</p>
+                <p>17 KN 14 Ave<br />Kigali, Rwanda</p>
+                <a className="hours-card-link" href="https://www.google.com/maps/search/?api=1&query=17+KN+14+Ave,+Kigali,+Rwanda" target="_blank" rel="noreferrer">Get directions</a>
               </div>
             </div>
             <div className="hours-card">
               <Clock3 size={18} strokeWidth={1.5} />
               <div>
                 <strong>Hours</strong>
-                <p>Tuesday — Sunday<br />6:00 PM — 10:30 PM</p>
+                <p>Lunch Tue–Sat, 12PM – 3PM<br />Dinner Tue–Thu, 6PM – 11PM<br />Dinner Fri–Sat, 6PM – 12AM<br />Brunch Sun, 2PM – 10PM</p>
+              </div>
+            </div>
+            <div className="hours-card">
+              <Phone size={18} strokeWidth={1.5} />
+              <div>
+                <strong>Reach us</strong>
+                <p><a className="hours-card-link" href="tel:+250798979779">0798 979 779</a></p>
               </div>
             </div>
           </div>
@@ -156,7 +172,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="site-footer">
-        <span>© 2025 Kozo Kigali</span>
+        <span>© 2026 Kozo Kigali</span>
         <span>Reservations are subject to availability</span>
       </footer>
     </main>

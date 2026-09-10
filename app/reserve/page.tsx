@@ -112,8 +112,8 @@ export default function ReservePage() {
           <h1>Make an evening<br /><em>of it.</em></h1>
           <p className="aside-copy">Afro-Asian fine dining, warm hospitality, and the kind of evening worth lingering over.</p>
           <div className="aside-rule" />
-          <p className="aside-detail">KG 7 Ave<br />Kigali, Rwanda</p>
-          <p className="aside-detail">Tuesday — Sunday<br />6:00 PM — 10:30 PM</p>
+          <p className="aside-detail">17 KN 14 Ave<br />Kigali, Rwanda</p>
+          <p className="aside-detail">Tuesday — Sunday<br />Lunch, dinner & brunch</p>
         </aside>
 
         <section className="reservation-card" aria-label="Reservation booking">
@@ -218,14 +218,14 @@ export default function ReservePage() {
               <p className="eyebrow">Reservation confirmed</p>
               <h2 id="confirmation-heading">We’ll see you soon,<br /><em>{firstName}.</em></h2>
               <p className="step-intro">Your table is waiting. A confirmation has been sent to {email}.</p>
-              <div className="confirmed-details"><strong>{dateLabel}</strong><span>{selectedTime} · {formatGuests(guests)}</span><span>Kozo Kigali · KG 7 Ave</span></div>
+              <div className="confirmed-details"><strong>{dateLabel}</strong><span>{selectedTime} · {formatGuests(guests)}</span><span>Kozo Kigali · 17 KN 14 Ave</span></div>
               <div className="confirmation-actions"><button type="button" className="primary-button" onClick={startOver}>Make another reservation <ArrowRight size={16} /></button><a className="text-link" href="/">Return to Kozo Kigali</a></div>
             </section>
           )}
         </section>
       </div>
 
-      <footer className="site-footer"><span>© 2025 Kozo Kigali</span><span>Reservations are subject to availability</span></footer>
+      <footer className="site-footer"><span>© 2026 Kozo Kigali</span><span>Reservations are subject to availability</span></footer>
     </main>
   )
 }
