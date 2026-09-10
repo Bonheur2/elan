@@ -98,9 +98,9 @@ export default function ReservePage() {
   return (
     <main className="reservation-shell">
       <header className="site-header">
-        <a className="brand" href="/" aria-label="Élan home">
+        <a className="brand" href="/" aria-label="Kozo home">
           <span className="brand-mark">K</span>
-          <span>ÉLAN</span>
+          <span>KOZO</span>
         </a>
         <div className="header-note">Kigali · Rwanda</div>
         <a className="header-link" href="/">Back to home</a>
@@ -108,7 +108,7 @@ export default function ReservePage() {
 
       <div className="reservation-layout" id="top">
         <aside className="reservation-aside" aria-label="Reservation information">
-          <p className="eyebrow">A table at Élan</p>
+          <p className="eyebrow">A table at Kozo</p>
           <h1>Make an evening<br /><em>of it.</em></h1>
           <p className="aside-copy">Afro-Asian fine dining, warm hospitality, and the kind of evening worth lingering over.</p>
           <div className="aside-rule" />
@@ -186,8 +186,8 @@ export default function ReservePage() {
                     <p className="step-intro">We’ll send your reservation details and a gentle reminder before your visit.</p>
                     <label className="full-label">Email address<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="[User Email]" autoComplete="email" /></label>
                     <div className="login-divider"><span>or</span></div>
-                    <button type="button" className="secondary-button">Log in to your Élan account</button>
-                    <p className="privacy-note">By continuing, you agree to receive reservation communications from Élan. We’ll never share your details.</p>
+                    <button type="button" className="secondary-button">Log in to your Kozo account</button>
+                    <p className="privacy-note">By continuing, you agree to receive reservation communications from Kozo. We’ll never share your details.</p>
                   </section>
                 )}
 
@@ -218,14 +218,14 @@ export default function ReservePage() {
               <p className="eyebrow">Reservation confirmed</p>
               <h2 id="confirmation-heading">We’ll see you soon,<br /><em>{firstName}.</em></h2>
               <p className="step-intro">Your table is waiting. A confirmation has been sent to {email}.</p>
-              <div className="confirmed-details"><strong>{dateLabel}</strong><span>{selectedTime} · {formatGuests(guests)}</span><span>Élan Kigali · KG 7 Ave</span></div>
-              <div className="confirmation-actions"><button type="button" className="primary-button" onClick={startOver}>Make another reservation <ArrowRight size={16} /></button><a className="text-link" href="/">Return to Élan Kigali</a></div>
+              <div className="confirmed-details"><strong>{dateLabel}</strong><span>{selectedTime} · {formatGuests(guests)}</span><span>Kozo Kigali · KG 7 Ave</span></div>
+              <div className="confirmation-actions"><button type="button" className="primary-button" onClick={startOver}>Make another reservation <ArrowRight size={16} /></button><a className="text-link" href="/">Return to Kozo Kigali</a></div>
             </section>
           )}
         </section>
       </div>
 
-      <footer className="site-footer"><span>© 2025 Élan Kigali</span><span>Reservations are subject to availability</span></footer>
+      <footer className="site-footer"><span>© 2025 Kozo Kigali</span><span>Reservations are subject to availability</span></footer>
     </main>
   )
 }

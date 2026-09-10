@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Book a table | Élan Kigali',
-  description: 'Reserve your table at Élan Kigali — Afro-Asian fine dining in the heart of Rwanda.',
+  title: 'Book a table | Kozo Kigali',
+  description: 'Reserve your table at Kozo Kigali — Afro-Asian fine dining in the heart of Rwanda.',
   icons: {
     icon: [
       {

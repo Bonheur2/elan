@@ -42,9 +42,9 @@ export default function LandingPage() {
   return (
     <main className="landing-shell" id="top">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Élan home">
+        <a className="brand" href="#top" aria-label="Kozo home">
           <span className="brand-mark">K</span>
-          <span>ÉLAN</span>
+          <span>KOZO</span>
         </a>
         <nav className="landing-nav" aria-label="Primary">
           {navLinks.map((link) => (
@@ -58,7 +58,7 @@ export default function LandingPage() {
         <div className="hero-copy">
           <p className="eyebrow">Afro-Asian fine dining · Kigali</p>
           <h1>Flavors that travel,<br /><em>a table that stays.</em></h1>
-          <p className="hero-lede">Élan blends West African warmth with Asian precision — a menu built for long nights, good company, and the kind of evening worth lingering over.</p>
+          <p className="hero-lede">Kozo blends West African warmth with Asian precision — a menu built for long nights, good company, and the kind of evening worth lingering over.</p>
           <div className="hero-actions">
             <a className="primary-button hero-primary" href="/reserve">Book a table <ArrowRight size={16} /></a>
             <a className="text-link" href="#menu">Explore the menu</a>
@@ -73,7 +73,7 @@ export default function LandingPage() {
           </dl>
         </div>
         <div className="hero-visual" aria-hidden="true">
-          <span className="hero-visual-mark">É</span>
+          <span className="hero-visual-mark">K</span>
         </div>
       </section>
 
@@ -84,7 +84,7 @@ export default function LandingPage() {
             <h2>Two kitchens,<br />one table.</h2>
           </div>
           <div className="section-copy">
-            <p>Élan started as a question: what happens when a Kigali kitchen stops choosing between its neighbors and its influences? The answer is a menu that moves freely between suya spice and soy glaze, cassava and rice noodle, without apologizing for either.</p>
+            <p>Kozo started as a question: what happens when a Kigali kitchen stops choosing between its neighbors and its influences? The answer is a menu that moves freely between suya spice and soy glaze, cassava and rice noodle, without apologizing for either.</p>
             <p>Every plate is built to be shared, every table is set to be lingered over, and every evening ends the way a good one should — slowly.</p>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function LandingPage() {
       </section>
 
       <section className="landing-section" id="experience">
-        <p className="eyebrow">Why Élan</p>
+        <p className="eyebrow">Why Kozo</p>
         <h2>The details we don’t skip</h2>
         <div className="feature-grid">
           {experience.map(({ icon: Icon, title, copy }) => (
@@ -122,7 +122,7 @@ export default function LandingPage() {
 
       <section className="landing-quote">
         <p>“We don’t plate two cuisines side by side. We cook until they stop being two.”</p>
-        <span>— The Élan kitchen</span>
+        <span>— The Kozo kitchen</span>
       </section>
 
       <section className="landing-section" id="hours">
@@ -156,7 +156,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="site-footer">
-        <span>© 2025 Élan Kigali</span>
+        <span>© 2025 Kozo Kigali</span>
         <span>Reservations are subject to availability</span>
       </footer>
     </main>
